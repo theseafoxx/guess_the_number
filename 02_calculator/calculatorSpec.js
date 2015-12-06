@@ -46,4 +46,10 @@ describe("Create a Calculator", function() {
     calculator.subtract(2);
     expect(calculator.value()).toEqual(1);
   });
+/*
+  it("is the var total accessible to the nested method", function () {
+    calculator.add(66);
+    expect(calculator.tkh().nested()).toEqual(66);
+  });
+  */
 });
