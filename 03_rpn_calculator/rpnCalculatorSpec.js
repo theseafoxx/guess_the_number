@@ -61,6 +61,24 @@ describe("Calculator using reverse polish notation", function() {
     expect(function() {
       rpnCalculator.divide();
     }).toThrow("rpnCalculator is empty");
+    
+    rpnCalculator.push(1);
+    expect(function() {
+      rpnCalculator.plus();
+    }).toThrow("rpnCalculator does not have enough parameters for the operation");
+
+    expect(function() {
+      rpnCalculator.minus();
+    }).toThrow("rpnCalculator does not have enough parameters for the operation");
+
+    expect(function() {
+      rpnCalculator.times();
+    }).toThrow("rpnCalculator does not have enough parameters for the operation");
+
+    expect(function() {
+      rpnCalculator.divide();
+    }).toThrow("rpnCalculator does not have enough parameters for the operation");
+
   });
 
   it("All methods should be on the RPNCalculator.prototype", function() {
