@@ -98,3 +98,31 @@ return result;
 }
 
 /* more looping over arrays */
+
+function join(arr, delimiter) {
+    var result = "";
+    delimiter = delimiter !== undefined? delimiter: "";
+    for(var ii=0, len=arr.length; ii<len; ii++) {
+        result += arr[ii].toString();
+        if(ii+1 !== len) {
+            result += delimiter;
+        }
+    }
+    return result;
+}
+
+function paramify(obj) {
+    var result = [];
+
+    for(var key in obj) {
+        if(obj.hasOwnProperty(key)) {
+            result.push(key+"="+obj[key]);
+        }
+    }
+    result.sort(function(a,b) {
+        var aa = a.split("=");
+        var bb = b.split("=");
+        return aa[0].toLocaleLowerCase() > bb[0].toLocaleLowerCase();
+    });
+    return result.join("&");
+}
