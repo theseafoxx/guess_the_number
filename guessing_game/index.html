@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>Guess the Number</title>
+        <link rel="stylesheet" href="https://necolas.github.io/normalize.css/3.0.2/normalize.css">
+        <link rel="stylesheet" href="css/main.css">
+    </head>
+    <body>
+        <main>
+            <h1>Guess The Number</h1>
+            <h2 id="gameStatus">Enter a Number Between 1-100</h2>
+            <!--
+            Enter a Number Between 1-100
+            Your game has been restarted, enter a new guess!
+            You are HOT
+            You are COLD
+            You are CORRECT!
+            Sorry, Play Again!
+            -->
+            <h3 id="guessStatus"><span id="guessNum">5</span> Guesses Remaining</h3>
+            <div id="gameForm">
+                <div id="gameFormMain">
+                    <input type="text" name="guess" placeholder="Input number 1-100" maxlength="3">
+                    <input type="button" name="btnGuess" value="Submit Your Guess">
+                </div>
+                <div id="gameFormExtra">
+                    <input type="button" name="btnRestart" value="Play Again">
+                    <input type="button" name="btnHint" value="Show a Hint">
+                    <h3 id="hint"></h3>
+                </div>
+            </div>
+        </main>
+    </body>
+</html>
