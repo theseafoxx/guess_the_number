@@ -1,18 +1,18 @@
-function GuessingGame(el, options, messeges) {
+function GuessingGame(el, options, messages) {
     this.settings = $.extend({
          rangeStart: 1
         ,rangeEnd: 10
         ,allowedGuesses: 5
     },options);
-    this.messages = {
-         winner: "You Are A WINNER!<span class=\"animate-flicker\"><span>*</span><span>*</span><span>*</span></span>"
+    this.messages = $.extend({
+         winner: "You Are A <span class=\"colorful\">WINNER</span>!"
         ,lost: "Sorry, game over. Try again."
         ,duplicate: "Duplicate entry, try again."
         ,reset: "Your game has been restarted, enter a new guess!"
         ,error: "Please enter digits only between " + this.settings.rangeStart + "-" + this.settings.rangeEnd + "."
         ,welcome: "Enter a Number Between " + this.settings.rangeStart + "-" + this.settings.rangeEnd
         ,guessPlaceHolder: "Input Number " + this.settings.rangeStart + "-" + this.settings.rangeEnd
-    };
+    }, messages);
     this.el = el;
     this.init('new');
 
@@ -20,6 +20,7 @@ function GuessingGame(el, options, messeges) {
 
 GuessingGame.prototype = {
      init : function(type) {
+         var self = this;
          this.winningNum = this.generateWinningNumber();
          this.hint = this.generateHint();
          this.status = "play";
@@ -27,7 +28,6 @@ GuessingGame.prototype = {
          this.guessRecord = [];
          this.currentGuess = "";
          this.el.find('input[name=guess]').val("").attr("placeholder",this.messages.guessPlaceHolder);
-         var self = this;
          if(type == 'new' || type == 'reset') {
              this.el.off('.guess');
              /* need the event handler to call anonymous functions which then call a function within the instance scope */
@@ -130,7 +130,7 @@ GuessingGame.prototype = {
             return {position: 'higher', within: within};
         } else {
             return {position: 'lower', within: within};
-            }
+        }
     }
     ,displayMessages : function(availableGuesses, msg) {
         this.el.find('#gameStatus').html(msg);
@@ -139,10 +139,11 @@ GuessingGame.prototype = {
     ,displayHint : function(msg) {
         this.el.find('#hint').text(msg);
     }
-}
+};
+
 Object.defineProperty(GuessingGame.prototype, 'constructor', {
      value: GuessingGame
     ,enumerable: false
-})
+});
 
 var guessTheNumber = new GuessingGame($('main'),{rangeEnd: 100});
