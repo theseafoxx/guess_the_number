@@ -9,7 +9,7 @@
     <body>
         <main>
             <h1>Guess The Number</h1>
-            <h2 id="gameStatus">Enter a Number Between 1-100</h2>
+            <h2 id="gameStatus"></h2>
             <!--
             Enter a Number Between 1-100
             Your game has been restarted, enter a new guess!
@@ -18,18 +18,20 @@
             You are CORRECT!
             Sorry, Play Again!
             -->
-            <h3 id="guessStatus"><span id="guessNum">5</span> Guesses Remaining</h3>
+            <h3 id="guessStatus"><span id="guessNum"></span> Guesses Remaining</h3>
             <div id="gameForm">
                 <div id="gameFormMain">
-                    <input type="text" name="guess" placeholder="Input number 1-100" maxlength="3">
+                    <input type="text" name="guess" placeholder="">
                     <input type="button" name="btnGuess" value="Submit Your Guess">
                 </div>
                 <div id="gameFormExtra">
-                    <input type="button" name="btnRestart" value="Play Again">
+                    <input type="button" name="btnReset" value="Play Again">
                     <input type="button" name="btnHint" value="Show a Hint">
                     <h3 id="hint"></h3>
                 </div>
             </div>
         </main>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+        <script src="js/main.js"></script>
     </body>
 </html>
